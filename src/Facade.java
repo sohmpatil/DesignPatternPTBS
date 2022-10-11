@@ -1,4 +1,5 @@
 public class Facade {
+
     private int UserType;
     private Product theSelectedProduct;
     private int nProductCategory;

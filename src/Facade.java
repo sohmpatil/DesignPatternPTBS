@@ -1,4 +1,7 @@
+import javax.swing.*;
+
 public class Facade {
+    public static final String loginFrameTitle = "Login Form";
 
     private int UserType;
     private Product theSelectedProduct;
@@ -7,6 +10,12 @@ public class Facade {
     private Person thePerson;
 
     public boolean login() {
+        Login loginFrame = new Login();
+        loginFrame.setTitle(loginFrameTitle);
+        loginFrame.setVisible(true);
+        loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        loginFrame.setResizable(false);
+        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         return true;
     }
 

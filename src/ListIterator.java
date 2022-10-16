@@ -1,10 +1,10 @@
 public interface ListIterator {
 
-    boolean hasNext();
+    boolean hasNext ();
 
-    Object Next();
+    Object Next ();
 
-    void MoveToHead();
+    void MoveToHead ();
 
-    void Remove();
+    void Remove ();
 }

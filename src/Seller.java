@@ -1,7 +1,7 @@
 public class Seller extends Person{
 
     @Override
-    public void showMenu(){
+    public void showMenu() {
 
     }
 

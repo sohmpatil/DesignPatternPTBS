@@ -1,6 +1,11 @@
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
+        Facade facade = new Facade();
+        facade.login();
+    }
 
-        System.out.println("Hello world!");
+    public static void runLogin() {
     }
 }

@@ -1,6 +1,7 @@
 public abstract class Person {
 
     private ProductMenu theProductMenu;
+    private UserInfoItem userInfoItem;
 
     public abstract void showMenu();
     public void showAddButton() {

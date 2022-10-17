@@ -8,6 +8,10 @@ public class Facade {
     private int nProductCategory;
     private ClassProductList theProductList;
     private Person thePerson;
+    private UserInfoItem userInfoItem;
+
+    public Facade() {
+    }
 
     public boolean login() {
         Login loginFrame = new Login();
@@ -16,11 +20,15 @@ public class Facade {
         loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         loginFrame.setResizable(false);
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        return true;
+        userInfoItem.setUserType(loginFrame.userInfo.getUserType());
+        userInfoItem.setUserName(loginFrame.userInfo.getUserName());
+        addTrading();
+        return loginFrame.isLogin;
     }
 
     public void addTrading() {
-
+        System.out.println(userInfoItem.getUserType());
+        System.out.println(userInfoItem.getUserName());
     }
 
     public void viewTrading() {

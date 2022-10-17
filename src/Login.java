@@ -17,19 +17,24 @@ public class Login extends JFrame implements ActionListener {
     private final static int CHECKBOX_WIDTH = 150;
     private final static int BUTTON_WIDTH = 150;
     private final static int HEIGHT = 30;
+    private final static int BUYER = 0;
+    private final static int SELLER = 1;
 
     private final static String BUYER_PATH = "resources/BuyerInfo.txt";
     private final static String SELLER_PATH = "resources/SellerInfo.txt";
-    Container layoutContainer = getContentPane();
 
-    JLabel usernameLabel = new JLabel("Username");
-    JLabel passwordLabel = new JLabel("Password");
+    private final Container layoutContainer = getContentPane();
 
-    JTextField usernameTextField = new JTextField();
-    JPasswordField passwordTextField = new JPasswordField();
+    private final JLabel usernameLabel = new JLabel("Username");
+    private final JLabel passwordLabel = new JLabel("Password");
 
-    JCheckBox revealPasswordCheckBox = new JCheckBox("Reveal Password");
-    JButton loginButton = new JButton("Login");
+    private final JTextField usernameTextField = new JTextField();
+    private final JPasswordField passwordTextField = new JPasswordField();
+
+    private final JCheckBox revealPasswordCheckBox = new JCheckBox("Reveal Password");
+    private final JButton loginButton = new JButton("Login");
+    public UserInfoItem userInfo;
+    public boolean isLogin = false;
 
     Login() {
 
@@ -55,7 +60,6 @@ public class Login extends JFrame implements ActionListener {
 
         revealPasswordCheckBox.addActionListener(this);
         loginButton.addActionListener(this);
-
     }
 
     @Override
@@ -80,9 +84,9 @@ public class Login extends JFrame implements ActionListener {
             File sellerFile = new File(SELLER_PATH);
 
             try {
-                if (userExists(usernameText, passwordText, buyerFile)) {
+                if (userExists(usernameText, passwordText, buyerFile, BUYER)) {
                     JOptionPane.showMessageDialog(this, "Buyer Exists");
-                } else if (userExists(usernameText, passwordText, sellerFile)) {
+                } else if (userExists(usernameText, passwordText, sellerFile, SELLER)) {
                     JOptionPane.showMessageDialog(this, "Seller Exists");
                 } else {
                     JOptionPane.showMessageDialog(this, "Wrong Password or Username");
@@ -93,13 +97,16 @@ public class Login extends JFrame implements ActionListener {
         }
     }
 
-    public boolean userExists(String userName, String password, File fileName) throws FileNotFoundException {
+    public boolean userExists(String userName, String password, File fileName, int userType) throws FileNotFoundException {
         String userPasswordLine = userName + ":"  + password;
         try {
             Scanner reader = new Scanner(fileName);
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
                 if (userPasswordLine.equals(line)) {
+                    this.userInfo.setUserName(userName);
+                    this.userInfo.setUserType(userType);
+                    this.isLogin = true;
                     return true;
                 }
             }
@@ -108,6 +115,7 @@ public class Login extends JFrame implements ActionListener {
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+            isLogin = false;
             return false;
         }
     }

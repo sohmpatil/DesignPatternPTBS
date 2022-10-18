@@ -2,19 +2,16 @@ public class UserInfoItem {
     private String userName;
     private int userType;
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
+    UserInfoItem(int userType, String userName) {
+        this.userType = userType;
         this.userName = userName;
     }
 
-    public int getUserType() {
-        return userType;
+    public String getUserName() {
+        return this.userName;
     }
-
-    public void setUserType(int userType) {
-        this.userType = userType;
+    
+    public int getUserType() {
+        return this.userType;
     }
 }

@@ -3,33 +3,33 @@ import java.util.ListIterator;
 public class OfferingIterator implements ListIterator<Offering> {
 
     OfferingList offeringList;
-    private int currentIndex = -1;
+    private int idx = -1;
 
     public OfferingIterator(OfferingList offeringList) {
         this.offeringList = offeringList;
     }
     @Override
     public boolean hasNext() {
-        return (currentIndex < (currentIndex + 1));
+        return (idx < (idx + 1));
     }
 
     @Override
     public Offering next() {
         if (hasNext()) {
-            return offeringList.get(++currentIndex);
+            return offeringList.get(++idx);
         }
         return null;
     }
 
     @Override
     public boolean hasPrevious() {
-        return (currentIndex >= 0);
+        return (idx >= 0);
     }
 
     @Override
     public Offering previous() {
         if (hasPrevious()) {
-            return offeringList.get(--currentIndex);
+            return offeringList.get(--idx);
         }
         return null;
     }
@@ -37,7 +37,7 @@ public class OfferingIterator implements ListIterator<Offering> {
     @Override
     public int nextIndex() {
         if (hasNext()) {
-            return (currentIndex + 1);
+            return (idx + 1);
         }
         return -1;
     }
@@ -45,23 +45,23 @@ public class OfferingIterator implements ListIterator<Offering> {
     @Override
     public int previousIndex() {
         if (hasNext()) {
-            return (currentIndex - 1);
+            return (idx - 1);
         }
         return -1;
     }
 
     @Override
     public void remove() {
-        if (currentIndex != -1) {
-            offeringList.remove(currentIndex);
+        if (idx != -1) {
+            offeringList.remove(idx);
         }
     }
 
     @Override
     public void set(Offering offering) {
-        if (currentIndex != -1) {
-            offeringList.add(currentIndex, offering);
-            offeringList.remove(currentIndex + 1);
+        if (idx != -1) {
+            offeringList.add(idx, offering);
+            offeringList.remove(idx + 1);
         }
     }
 
@@ -71,6 +71,8 @@ public class OfferingIterator implements ListIterator<Offering> {
     }
 
     public void moveToHead() {
-        currentIndex = -1;
+        idx = -1;
     }
+
+
 }

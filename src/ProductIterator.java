@@ -1,36 +1,37 @@
 import java.lang.annotation.Documented;
+import java.security.DrbgParameters;
 import java.util.ListIterator;
 
 public class ProductIterator implements ListIterator<Product> {
 
     ClassProductList classProductList;
-    private int currentIndex = -1;
+    private int idx = -1;
 
     public ProductIterator(ClassProductList classProductList) {
         this.classProductList = classProductList;
     }
     @Override
     public boolean hasNext() {
-        return (currentIndex < (classProductList.size() - 1));
+        return (idx < (classProductList.size() - 1));
     }
 
     @Override
     public Product next() {
         if (hasNext()) {
-            return classProductList.get(++currentIndex);
+            return classProductList.get(++idx);
         }
         return null;
     }
 
     @Override
     public boolean hasPrevious() {
-        return (currentIndex >= 0);
+        return (idx >= 0);
     }
 
     @Override
     public Product previous() {
         if (hasPrevious()) {
-            return classProductList.get(--currentIndex);
+            return classProductList.get(--idx);
         }
         return null;
     }
@@ -38,7 +39,7 @@ public class ProductIterator implements ListIterator<Product> {
     @Override
     public int nextIndex() {
         if (hasNext()) {
-            return (currentIndex + 1);
+            return (idx + 1);
         }
         return -1;
     }
@@ -46,23 +47,23 @@ public class ProductIterator implements ListIterator<Product> {
     @Override
     public int previousIndex() {
         if (hasNext()) {
-            return (currentIndex - 1);
+            return (idx - 1);
         }
         return -1;
     }
 
     @Override
     public void remove() {
-        if (currentIndex != -1) {
-            classProductList.remove(currentIndex);
+        if (idx != -1) {
+            classProductList.remove(idx);
         }
     }
 
     @Override
     public void set(Product product) {
-        if (currentIndex != -1) {
-            classProductList.add(currentIndex, product);
-            classProductList.remove(currentIndex + 1);
+        if (idx != -1) {
+            classProductList.add(idx, product);
+            classProductList.remove(idx + 1);
         }
     }
 
@@ -72,7 +73,20 @@ public class ProductIterator implements ListIterator<Product> {
     }
 
     public void moveToHead() {
-        currentIndex = -1;
+        idx = -1;
+    }
+
+    public Product findProduct(String productName) {
+        moveToHead();
+
+        while (hasNext()) {
+            next();
+            if (classProductList.get(idx).getProductName().equals(productName)) {
+                return classProductList.get(idx);
+            }
+        }
+
+        return null;
     }
 
 }

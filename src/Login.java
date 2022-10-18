@@ -104,8 +104,7 @@ public class Login extends JFrame implements ActionListener {
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
                 if (userPasswordLine.equals(line)) {
-                    this.userInfo.setUserName(userName);
-                    this.userInfo.setUserType(userType);
+                    this.userInfo = new UserInfoItem(userType, userName);
                     this.isLogin = true;
                     return true;
                 }

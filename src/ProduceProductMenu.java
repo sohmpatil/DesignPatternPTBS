@@ -1,7 +1,7 @@
 public class ProduceProductMenu implements ProductMenu {
 
     @Override
-    public void showMenu(){
+    public void showMenu() {
 
     }
 

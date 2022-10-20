@@ -5,15 +5,15 @@ public class ClassProductList extends ArrayList<Product> {
     private ProductIterator productIterator;
 
     ClassProductList() {
-
         productIterator = new ProductIterator(this);
     }
 
     public Product findProduct(String productName) {
+        System.out.println(productName);
         return productIterator.findProduct(productName);
     }
 
     public void accept(NodeVisitor visitor) {
-
+        System.out.println("Visited Accept");
     }
 }

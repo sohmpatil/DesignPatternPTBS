@@ -7,16 +7,27 @@ public class Buyer extends Person{
     }
     @Override
     public void showMenu() {
+        theProductMenu.showMenu();
+        System.out.println(theProductMenu);
+        showLabels();
+        showAddButton();
+        showRadioButton();
+        showViewButton();
+        showComboxes(getProductList());
 
     }
 
     @Override
     public ProductMenu CreateProductMenu(int meatOrProduce) {
+        System.out.println(meatOrProduce);
+
+        if (meatOrProduce == 0) {
+            return theProductMenu = new MeatProductMenu();
+        } else if (meatOrProduce == 1) {
+            return theProductMenu = new ProduceProductMenu();
+        }
+
         return null;
     }
 
-    @Override
-    public ProductMenu CreateProductMenu() {
-        return null;
-    }
 }

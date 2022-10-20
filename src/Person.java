@@ -1,6 +1,6 @@
 public abstract class Person {
 
-    private ProductMenu theProductMenu;
+    ProductMenu theProductMenu;
     private String userName;
     private int userType;
     private ClassProductList classProductList;
@@ -22,9 +22,12 @@ public abstract class Person {
         theProductMenu.showLabels();
     }
 
-    public abstract ProductMenu CreateProductMenu(int meatOrProduce);
+    public void showComboxes(ClassProductList productList) {
+        theProductMenu = new MeatProductMenu();
+        theProductMenu.showComboxes(productList);
+    }
 
-    public abstract ProductMenu CreateProductMenu();
+    public abstract ProductMenu CreateProductMenu(int meatOrProduce);
 
     public String getUserName() {
         return userName;

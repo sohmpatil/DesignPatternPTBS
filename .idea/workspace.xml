@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b99dc30b-6ad2-4879-987a-5df9a05d1471" name="Changes" comment="Developed Iterator Pattern in the Project">
+    <list default="true" id="b99dc30b-6ad2-4879-987a-5df9a05d1471" name="Changes" comment="Developed logic for Products Iteration.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Buyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Buyer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClassProductList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassProductList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OfferingIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OfferingIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeatProductMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeatProductMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProduceProductMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProduceProductMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Seller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInfoItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInfoItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665999324723</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Developed logic for Products Iteration.">
+      <created>1666113897832</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666113897832</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,6 +130,7 @@
     <MESSAGE value="Created Skeleton for Facade Pattern" />
     <MESSAGE value="Created Skeleton for Complete Assignment" />
     <MESSAGE value="Developed Iterator Pattern in the Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Developed Iterator Pattern in the Project" />
+    <MESSAGE value="Developed logic for Products Iteration." />
+    <option name="LAST_COMMIT_MESSAGE" value="Developed logic for Products Iteration." />
   </component>
 </project>

@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.security.BasicPermission;
 import java.util.Scanner;
 
 public class Facade {
@@ -17,17 +16,23 @@ public class Facade {
     private ClassProductList theProductList;
     private Person thePerson;
     private UserInfoItem userInfoItem;
+    private boolean isLoggingOn = true;
 
-    public Facade() {
+    Facade() {
     }
 
     public boolean login() {
+        isLoggingOn = true;
         Login loginFrame = new Login();
         loginFrame.setTitle(LOGIN_FRAME_TITLE);
         loginFrame.setVisible(true);
         loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         loginFrame.setResizable(false);
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        while(!loginFrame.isLogin) {
+            ;
+        }
+        System.out.println("Hi");
         userInfoItem = new UserInfoItem(loginFrame.userInfo.getUserType(), loginFrame.userInfo.getUserName());
         addTrading();
         return loginFrame.isLogin;
@@ -107,10 +112,14 @@ public class Facade {
     }
 
     public Product SelectProduct() {
+        theSelectedProduct = new Product("Check", 0);
         return theSelectedProduct;
     }
 
     public void productOperation() {
-
+        MeatProductMenu meat = new MeatProductMenu();
+        ProduceProductMenu produce = new ProduceProductMenu();
+        meat.meatProductFrame.setVisible(true);
+        produce.produceProductFrame.setVisible(true);
     }
 }

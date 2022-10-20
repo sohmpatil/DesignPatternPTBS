@@ -86,7 +86,9 @@ public class Login extends JFrame implements ActionListener {
             try {
                 if (userExists(usernameText, passwordText, buyerFile, BUYER)) {
                     JOptionPane.showMessageDialog(this, "Buyer Exists");
+                    isLogin = true;
                 } else if (userExists(usernameText, passwordText, sellerFile, SELLER)) {
+                    isLogin = true;
                     JOptionPane.showMessageDialog(this, "Seller Exists");
                 } else {
                     JOptionPane.showMessageDialog(this, "Wrong Password or Username");

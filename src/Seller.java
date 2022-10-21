@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class Seller extends Person{
 
     Seller(String userName) {
@@ -18,15 +20,31 @@ public class Seller extends Person{
     }
 
     @Override
-    public ProductMenu CreateProductMenu(int meatOrProduce) {
+    public ProductMenu CreateProductMenu(int meatOrProduce) throws InterruptedException {
         System.out.println(meatOrProduce);
 
         if (meatOrProduce == 0) {
-            return theProductMenu = new MeatProductMenu();
+            this.isPersonShown = true;
+            theProductMenu = new MeatProductMenu();
+            theProductMenu.getProductFrame().setVisible(true);
+            theProductMenu.showMenu();
+            theProductMenu.showAddButton();
+            theProductMenu.showViewButton();
+            theProductMenu.showLabels();
+            theProductMenu.showRadioButton();
+            theProductMenu.showComboxes(getProductList());
+            return theProductMenu;
         } else if (meatOrProduce == 1) {
-            return theProductMenu = new ProduceProductMenu();
+            theProductMenu = new ProduceProductMenu();
+            theProductMenu.getProductFrame().setVisible(true);
+            theProductMenu.showMenu();
+            theProductMenu.showAddButton();
+            theProductMenu.showViewButton();
+            theProductMenu.showRadioButton();
+            theProductMenu.showLabels();
+            theProductMenu.showComboxes(getProductList());
+            return theProductMenu;
         }
-
         return null;
     }
 

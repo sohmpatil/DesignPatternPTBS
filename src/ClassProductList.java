@@ -14,6 +14,8 @@ public class ClassProductList extends ArrayList<Product> {
     }
 
     public void accept(NodeVisitor visitor) {
-        System.out.println("Visited Accept");
+        for (Product product: productIterator.classProductList) {
+            visitor.visitProduct(product);
+        }
     }
 }

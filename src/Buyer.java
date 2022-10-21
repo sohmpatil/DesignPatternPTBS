@@ -1,5 +1,3 @@
-import java.util.concurrent.TimeUnit;
-
 public class Buyer extends Person{
     Buyer(String userName) {
         this.setUserName(userName);
@@ -19,7 +17,7 @@ public class Buyer extends Person{
     }
 
     @Override
-    public ProductMenu CreateProductMenu(int meatOrProduce) throws InterruptedException {
+    public ProductMenu CreateProductMenu(int meatOrProduce) {
         System.out.println(meatOrProduce);
 
         if (meatOrProduce == 0) {
@@ -31,11 +29,7 @@ public class Buyer extends Person{
             theProductMenu.showViewButton();
             theProductMenu.showLabels();
             theProductMenu.showRadioButton();
-            while (this.isPersonShown) {
-                TimeUnit.MILLISECONDS.sleep(100);
-            }
-            this.isPersonShown = false;
-            theProductMenu.getProductFrame().setVisible(false);
+            theProductMenu.showComboxes(getProductList());
             return theProductMenu;
         } else if (meatOrProduce == 1) {
             theProductMenu = new ProduceProductMenu();
@@ -45,6 +39,7 @@ public class Buyer extends Person{
             theProductMenu.showViewButton();
             theProductMenu.showRadioButton();
             theProductMenu.showLabels();
+            theProductMenu.showComboxes(getProductList());
             return theProductMenu;
         }
 

@@ -33,13 +33,13 @@ public class ProduceProductMenu implements ProductMenu {
 
     @Override
     public void showAddButton() {
-        addProductButton.setBounds(100, 100, 100, 20);
+        addProductButton.setBounds(100, 500, 100, 20);
         produceProductFrame.add(addProductButton);
     }
 
     @Override
     public void showViewButton() {
-        viewProductButton.setBounds(200, 100, 100, 20);
+        viewProductButton.setBounds(200, 500, 100, 20);
         produceProductFrame.add(viewProductButton);
     }
 
@@ -61,11 +61,13 @@ public class ProduceProductMenu implements ProductMenu {
 
     @Override
     public void showComboxes(ClassProductList productList) {
-        for (Product product : productList) {
-            if (product.getProductType() == 1)
-                jComboBox.addItem(product.getProductName());
+        String[] products = new String[] {"Tomato", "Onion", "Potato"};
+        for (int i = 0; i < products.length; i++) {
+            jComboBox.addItem(products[i]);
+            //if (product.getProductType() == 0)
+            //jComboBox.addItem(product.getProductName());
         }
-        jComboBox.setBounds(200, 300,100,20);
-        produceProductFrame.add(jComboBox);
+        jComboBox.setBounds(100, 400,200,20);
+        this.produceProductFrame.add(jComboBox);
     }
 }

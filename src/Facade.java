@@ -4,6 +4,11 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Facade:
+ * This class as the name suggests works for accumulation of methods from other classes.
+ * This uses methods from Login class.
+ */
 public class Facade {
     public static final String LOGIN_FRAME_TITLE = "Login Form";
     public static final File PRODUCTS_INFO_FILE = new File("resources/ProductInfo.txt");
@@ -34,16 +39,13 @@ public class Facade {
             TimeUnit.MILLISECONDS.sleep(100);
         }
         loginFrame.setVisible(false);
-        System.out.println("Hi " + loginFrame.name);
         userInfoItem = new UserInfoItem(loginFrame.userInfo.getUserType(), loginFrame.userInfo.getUserName());
         UserType = userInfoItem.getUserType();
-        addTrading();
+        createUser(userInfoItem);
         return loginFrame.isLogin;
     }
 
     public void addTrading() {
-        System.out.println(userInfoItem.getUserType());
-        System.out.println(userInfoItem.getUserName());
     }
 
     public void viewTrading() {
@@ -120,8 +122,20 @@ public class Facade {
     }
 
     public void productOperation() throws InterruptedException, FileNotFoundException {
-        Buyer buyer = new Buyer("pepe");
+        Buyer buyer = new Buyer(this.userInfoItem.getUserName());
         createProductList();
-        buyer.CreateProductMenu(0);
+        buyer.CreateProductMenu(this.userInfoItem.getUserType());
+    }
+
+    public void reminderVisitor() {
+        ReminderVisitor reminder = new ReminderVisitor();
+        Trading trade = new Trading();
+        //theProductList.accept(reminder);
+        trade.accept(reminder);
+        accept(reminder);
+    }
+
+    public void accept(NodeVisitor visitor) {
+        visitor.visitFacade(this);
     }
 }

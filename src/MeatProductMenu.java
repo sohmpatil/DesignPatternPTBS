@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MeatProductMenu implements ProductMenu {
     private JFrame meatProductFrame;
@@ -50,6 +52,16 @@ public class MeatProductMenu implements ProductMenu {
         productsButtonGroup.add(produceButton);
         this.meatProductFrame.add(meatButton);
         this.meatProductFrame.add(produceButton);
+
+        ActionListener actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AbstractAction aButton = (AbstractAction) e.getSource();
+                System.out.println("meat");
+            }
+        };
+        meatButton.addActionListener(actionListener);
+        produceButton.addActionListener(actionListener);
     }
 
     @Override
@@ -60,11 +72,13 @@ public class MeatProductMenu implements ProductMenu {
 
     @Override
     public void showComboxes(ClassProductList productList) {
-        for (Product product : productList) {
-            if (product.getProductType() == 0)
-                jComboBox.addItem(product.getProductName());
+        String[] products = new String[] {"Mutton", "Beef", "Pork"};
+        for (int i = 0; i < products.length; i++) {
+            jComboBox.addItem(products[i]);
+            //if (product.getProductType() == 0)
+                //jComboBox.addItem(product.getProductName());
         }
-        jComboBox.setBounds(200, 300,100,20);
+        jComboBox.setBounds(100, 400,200,20);
         this.meatProductFrame.add(jComboBox);
     }
     

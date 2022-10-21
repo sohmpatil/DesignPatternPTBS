@@ -1,5 +1,8 @@
 import javax.swing.*;
 
+/**
+ * This is used in the BRIDGE and FACTORY design pattern
+ */
 public class ProduceProductMenu implements ProductMenu {
     JFrame produceProductFrame;
     JLabel productsSelect = new JLabel("Select from following products");

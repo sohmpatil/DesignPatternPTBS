@@ -1,3 +1,6 @@
+/**
+ * This is used in VISITOR design Pattern
+ */
 public class ReminderVisitor extends NodeVisitor {
 
     private Reminder m_Reminder;
@@ -9,7 +12,9 @@ public class ReminderVisitor extends NodeVisitor {
 
     @Override
     public void visitTrading(Trading trading) {
-        System.out.println("Trading Reminder");
+        this.m_Reminder = new Reminder();
+        this.m_Reminder.name = "Reminder";
+        System.out.println("Trading Reminder " + this.m_Reminder.name);
     }
 
     @Override

@@ -1,7 +1,8 @@
-import java.lang.annotation.Documented;
-import java.security.DrbgParameters;
 import java.util.ListIterator;
 
+/**
+ * This is used in ITERATOR design Pattern
+ */
 public class ProductIterator implements ListIterator<Product> {
 
     ClassProductList classProductList;

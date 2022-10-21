@@ -1,4 +1,8 @@
 import javax.swing.*;
+
+/**
+ * This class implemented in FACADE, FACTORY and BRIDGE design patterns
+ */
 public interface ProductMenu {
     JFrame getProductFrame();
     void showMenu();

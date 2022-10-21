@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Used for FACADE design pattern
+ */
 public class Login extends JFrame implements ActionListener {
 
     private final static int START_X = 50;

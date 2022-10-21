@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This is used in the BRIDGE and FACTORY design pattern
+ */
 public class MeatProductMenu implements ProductMenu {
     private JFrame meatProductFrame;
     JLabel productsSelect = new JLabel("Select from following products");

@@ -1,3 +1,6 @@
+/**
+ * This class implemented to FACADE and VISITOR design Pattern
+ */
 public class Reminder {
-    private String name;
+    String name;
 }

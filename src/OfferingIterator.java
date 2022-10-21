@@ -1,5 +1,8 @@
 import java.util.ListIterator;
 
+/**
+ * This is used in ITERATOR design Pattern
+ */
 public class OfferingIterator implements ListIterator<Offering> {
 
     OfferingList offeringList;

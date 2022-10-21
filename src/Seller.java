@@ -1,5 +1,6 @@
-import java.util.concurrent.TimeUnit;
-
+/**
+ * This is used in the BRIDGE and FACTORY design pattern
+ */
 public class Seller extends Person{
 
     Seller(String userName) {

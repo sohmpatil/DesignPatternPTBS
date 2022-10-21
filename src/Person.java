@@ -1,3 +1,6 @@
+/**
+ * This is important abstract as person for the BRIDGE design pattern
+ */
 public abstract class Person {
 
     ProductMenu theProductMenu;

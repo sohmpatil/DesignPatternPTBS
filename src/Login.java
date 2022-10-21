@@ -34,7 +34,9 @@ public class Login extends JFrame implements ActionListener {
     private final JCheckBox revealPasswordCheckBox = new JCheckBox("Reveal Password");
     private final JButton loginButton = new JButton("Login");
     public UserInfoItem userInfo;
-    public boolean isLogin = false;
+    public boolean isLogin = true;
+
+    public String name;
 
     Login() {
 
@@ -86,9 +88,7 @@ public class Login extends JFrame implements ActionListener {
             try {
                 if (userExists(usernameText, passwordText, buyerFile, BUYER)) {
                     JOptionPane.showMessageDialog(this, "Buyer Exists");
-                    isLogin = true;
                 } else if (userExists(usernameText, passwordText, sellerFile, SELLER)) {
-                    isLogin = true;
                     JOptionPane.showMessageDialog(this, "Seller Exists");
                 } else {
                     JOptionPane.showMessageDialog(this, "Wrong Password or Username");
@@ -107,7 +107,8 @@ public class Login extends JFrame implements ActionListener {
                 String line = reader.nextLine();
                 if (userPasswordLine.equals(line)) {
                     this.userInfo = new UserInfoItem(userType, userName);
-                    this.isLogin = true;
+                    name = userName;
+                    this.isLogin = false;
                     return true;
                 }
             }
@@ -116,7 +117,7 @@ public class Login extends JFrame implements ActionListener {
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-            isLogin = false;
+            isLogin = true;
             return false;
         }
     }

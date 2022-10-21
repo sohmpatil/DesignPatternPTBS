@@ -4,6 +4,7 @@ public abstract class Person {
     private String userName;
     private int userType;
     private ClassProductList classProductList;
+    public boolean isPersonShown = true;
 
     public abstract void showMenu();
     public void showAddButton() {
@@ -27,7 +28,7 @@ public abstract class Person {
         theProductMenu.showComboxes(productList);
     }
 
-    public abstract ProductMenu CreateProductMenu(int meatOrProduce);
+    public abstract ProductMenu CreateProductMenu(int meatOrProduce) throws InterruptedException;
 
     public String getUserName() {
         return userName;

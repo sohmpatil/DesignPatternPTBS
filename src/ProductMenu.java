@@ -1,7 +1,6 @@
 import javax.swing.*;
-
 public interface ProductMenu {
-
+    JFrame getProductFrame();
     void showMenu();
     void showAddButton();
     void showViewButton();

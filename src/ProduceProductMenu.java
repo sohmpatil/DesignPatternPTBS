@@ -13,9 +13,16 @@ public class ProduceProductMenu implements ProductMenu {
 
     JComboBox<String> jComboBox = new JComboBox<>();
 
-    ProduceProductMenu() {
-        produceProductFrame = new JFrame();
+
+    @Override
+    public JFrame getProductFrame() {
+        return this.produceProductFrame;
     }
+    ProduceProductMenu() {
+        this.produceProductFrame = new JFrame();
+        this.produceProductFrame.setLayout(null);
+    }
+
     @Override
     public void showMenu() {
         produceProductFrame.setVisible(true);
@@ -48,7 +55,7 @@ public class ProduceProductMenu implements ProductMenu {
 
     @Override
     public void showLabels() {
-        productsSelect.setBounds(100, 300, 100, 20);
+        productsSelect.setBounds(100, 300, 200, 20);
         produceProductFrame.add(productsSelect);
     }
 

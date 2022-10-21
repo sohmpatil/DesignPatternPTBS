@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Facade {
     public static final String LOGIN_FRAME_TITLE = "Login Form";
@@ -21,7 +22,7 @@ public class Facade {
     Facade() {
     }
 
-    public boolean login() {
+    public boolean login() throws InterruptedException {
         isLoggingOn = true;
         Login loginFrame = new Login();
         loginFrame.setTitle(LOGIN_FRAME_TITLE);
@@ -29,11 +30,13 @@ public class Facade {
         loginFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         loginFrame.setResizable(false);
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        while(!loginFrame.isLogin) {
-            ;
+        while(loginFrame.isLogin) {
+            TimeUnit.MILLISECONDS.sleep(100);
         }
-        System.out.println("Hi");
+        loginFrame.setVisible(false);
+        System.out.println("Hi " + loginFrame.name);
         userInfoItem = new UserInfoItem(loginFrame.userInfo.getUserType(), loginFrame.userInfo.getUserName());
+        UserType = userInfoItem.getUserType();
         addTrading();
         return loginFrame.isLogin;
     }
@@ -79,8 +82,8 @@ public class Facade {
         Scanner reader = new Scanner(PRODUCTS_INFO_FILE);
 
         while (reader.hasNextLine()) {
-            String scan = reader.nextLine();
-            splits = scan.split(":");
+            String line = reader.nextLine();
+            splits = line.split(":");
             String meatOrProduce = splits[0];
             String product = splits[1];
 
@@ -100,8 +103,8 @@ public class Facade {
         Scanner reader = new Scanner(USER_PRODUCT_FiLE);
 
         while (reader.hasNextLine()) {
-            String scan = reader.nextLine();
-            String[] splits = scan.split(":");
+            String line = reader.nextLine();
+            String[] splits = line.split(":");
             String user = splits[0];
             String product = splits[1];
 
@@ -116,10 +119,9 @@ public class Facade {
         return theSelectedProduct;
     }
 
-    public void productOperation() {
-        MeatProductMenu meat = new MeatProductMenu();
-        ProduceProductMenu produce = new ProduceProductMenu();
-        meat.meatProductFrame.setVisible(true);
-        produce.produceProductFrame.setVisible(true);
+    public void productOperation() throws InterruptedException, FileNotFoundException {
+        Buyer buyer = new Buyer("pepe");
+        createProductList();
+        buyer.CreateProductMenu(0);
     }
 }
